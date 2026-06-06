@@ -69,4 +69,31 @@ public class TStudentCalculatorTests
 
         Assert.Equal(resultadoEsperado, resultado, 4);
     }
+
+    // PRUEBA 6: Muestra vacía
+    [Fact]
+    public void CalcularMedia_MuestraVacia_LanzaExcepcion()
+    {
+        double[] muestra = { };
+
+        Assert.Throws<ArgumentException>(() => _calc.CalcularMedia(muestra));
+    }
+
+    // PRUEBA 7: Muestra con un solo dato
+    [Fact]
+    public void CalcularVarianza_UnSoloDato_LanzaExcepcion()
+    {
+        double[] muestra = { 5 };
+
+        Assert.Throws<ArgumentException>(() => _calc.CalcularVarianza(muestra));
+    }
+
+    // PRUEBA 8: Entrada nula
+    [Fact]
+    public void CalcularMedia_EntradaNula_LanzaExcepcion()
+    {
+        double[]? muestra = null;
+
+        Assert.Throws<ArgumentException>(() => _calc.CalcularMedia(muestra!));
+    }
 }
