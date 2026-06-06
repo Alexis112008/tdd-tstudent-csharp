@@ -42,4 +42,17 @@ public class TStudentCalculator
     {
         return Math.Sqrt(CalcularVarianza(muestra));
     }
+
+
+    public double CalcularTStudent(double[] muestra, double mediaPoblacional)
+    {
+        if (muestra == null || muestra.Length < 2)
+            throw new ArgumentException("La muestra debe tener al menos 2 elementos.");
+
+        double media = CalcularMedia(muestra);
+        double desviacion = CalcularDesviacionEstandar(muestra);
+        double n = muestra.Length;
+
+        return (media - mediaPoblacional) / (desviacion / Math.Sqrt(n));
+    }
 }

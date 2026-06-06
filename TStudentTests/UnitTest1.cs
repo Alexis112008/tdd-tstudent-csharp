@@ -39,4 +39,19 @@ public class TStudentCalculatorTests
 
         Assert.Equal(resultadoEsperado, resultado, 10);
     }
+
+    // PRUEBA 4: Estadístico T-Student
+    [Fact]
+    public void CalcularTStudent_ConDatosValidos_RetornaTStudentCorrecto()
+    {
+        double[] muestra = { 2, 4, 6, 8, 10 };
+        double mediaPoblacional = 5.0;
+        // t = (media - mu) / (desviacion / sqrt(n))
+        // t = (6 - 5) / (sqrt(10) / sqrt(5)) = 1 / (3.162/2.236) = 0.7071
+        double resultadoEsperado = 0.7071;
+
+        double resultado = _calc.CalcularTStudent(muestra, mediaPoblacional);
+
+        Assert.Equal(resultadoEsperado, resultado, 4);
+    }
 }
