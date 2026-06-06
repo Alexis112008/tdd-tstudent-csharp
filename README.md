@@ -12,6 +12,8 @@ Este proyecto implementa el cálculo del **estadístico T-Student** utilizando l
 ---
 
 ## 🏗️ Estructura del Proyecto
+
+```text
 tdd-tstudent-csharp/
 ├── TStudentLib/          # Librería con la lógica de cálculo
 │   └── Class1.cs         # Clase TStudentCalculator
@@ -20,6 +22,7 @@ tdd-tstudent-csharp/
 ├── TStudentTDD.slnx      # Solución .NET
 ├── .gitignore
 └── README.md
+```
 
 ---
 
