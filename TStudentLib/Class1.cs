@@ -43,7 +43,9 @@ public class TStudentCalculator
         return Math.Sqrt(CalcularVarianza(muestra));
     }
 
-
+    /// <summary> Calcula el estadístico T-Student para una muestra dada una media poblacional.
+    /// </summary> <param name="muestra">Arreglo de valores numéricos.</param> <param name="mediaPoblacional">Media poblacional para comparar.</param>
+    /// <returns>Valor del estadístico T-Student.</returns>
     public double CalcularTStudent(double[] muestra, double mediaPoblacional)
     {
         if (muestra == null || muestra.Length < 2)
@@ -54,5 +56,25 @@ public class TStudentCalculator
         double n = muestra.Length;
 
         return (media - mediaPoblacional) / (desviacion / Math.Sqrt(n));
+    }
+
+    /// <summary> Calcula el estadístico T-Student para dos muestras independientes.
+    /// </summary> <param name="muestra1">Arreglo de valores numéricos de la primera muestra.</param> 
+    /// <param name="muestra2">Arreglo de valores numéricos de la segunda muestra.</param>
+    /// <returns>Valor del estadístico T-Student.</returns>
+    public double CalcularTStudentDosMuestras(double[] muestra1, double[] muestra2)
+    {
+        if (muestra1 == null || muestra1.Length < 2)
+            throw new ArgumentException("La muestra 1 debe tener al menos 2 elementos.");
+        if (muestra2 == null || muestra2.Length < 2)
+            throw new ArgumentException("La muestra 2 debe tener al menos 2 elementos.");
+
+        double media1 = CalcularMedia(muestra1);
+        double media2 = CalcularMedia(muestra2);
+        double var1 = CalcularVarianza(muestra1);
+        double var2 = CalcularVarianza(muestra2);
+        double errorEstandar = Math.Sqrt(var1 / muestra1.Length + var2 / muestra2.Length);
+
+        return (media1 - media2) / errorEstandar;
     }
 }

@@ -54,4 +54,19 @@ public class TStudentCalculatorTests
 
         Assert.Equal(resultadoEsperado, resultado, 4);
     }
+
+    // PRUEBA 5: Dos muestras independientes
+    [Fact]
+    public void CalcularTStudentDosMuestras_ConDatosValidos_RetornaTStudentCorrecto()
+    {
+        double[] muestra1 = { 2, 4, 6, 8, 10 };
+        double[] muestra2 = { 1, 3, 5, 7, 9 };
+        // t = (media1 - media2) / sqrt(var1/n1 + var2/n2)
+        // t = (6 - 5) / sqrt(10/5 + 10/5) = 1 / sqrt(4) = 0.5
+        double resultadoEsperado = 0.5;
+
+        double resultado = _calc.CalcularTStudentDosMuestras(muestra1, muestra2);
+
+        Assert.Equal(resultadoEsperado, resultado, 4);
+    }
 }
