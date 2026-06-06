@@ -119,4 +119,25 @@ public class TStudentCalculatorTests
         // ASSERT
         Assert.Equal(resultadoEsperado, resultado, 4);
     }
+
+    // PRUEBA 10: Refactorización - el cambio interno no altera resultados
+    [Fact]
+    public void Refactorizacion_CambioInterno_NoAlteraResultados()
+    {
+        // ARRANGE
+        double[] muestra = { 2, 4, 6, 8, 10 };
+        double mediaPoblacional = 5.0;
+
+        // ACT - ejecutamos todos los métodos para verificar consistencia
+        double media = _calc.CalcularMedia(muestra);
+        double varianza = _calc.CalcularVarianza(muestra);
+        double desviacion = _calc.CalcularDesviacionEstandar(muestra);
+        double tStudent = _calc.CalcularTStudent(muestra, mediaPoblacional);
+
+        // ASSERT - verificamos que todos los resultados sean consistentes
+        Assert.Equal(6.0, media);
+        Assert.Equal(10.0, varianza);
+        Assert.Equal(Math.Sqrt(10.0), desviacion);
+        Assert.Equal(0.7071, tStudent, 4);
+    }
 }
