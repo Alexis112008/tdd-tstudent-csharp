@@ -2,7 +2,11 @@
 
 public class TStudentCalculator
 {
-    // MÉTODO 1: Calcular Media
+    /// <summary>
+    /// Calcula la media aritmética de una muestra.
+    /// </summary>
+    /// <param name="muestra">Arreglo de valores numéricos.</param>
+    /// <returns>Media aritmética de la muestra.</returns>
     public double CalcularMedia(double[] muestra)
     {
         if (muestra == null || muestra.Length == 0)
