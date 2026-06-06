@@ -33,4 +33,13 @@ public class TStudentCalculator
 
         return sumaCuadrados / (muestra.Length - 1);
     }
+
+    /// <summary>
+    /// Calcula la desviación estándar muestral de una muestra.
+    /// </summary> <param name="muestra">Arreglo de valores numéricos.</param>
+    /// <returns>Desviación estándar de la muestra.</returns>
+    public double CalcularDesviacionEstandar(double[] muestra)
+    {
+        return Math.Sqrt(CalcularVarianza(muestra));
+    }
 }
