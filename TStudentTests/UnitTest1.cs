@@ -96,4 +96,27 @@ public class TStudentCalculatorTests
 
         Assert.Throws<ArgumentException>(() => _calc.CalcularMedia(muestra!));
     }
+
+    // PRUEBA 9: Verificar contra cálculo manual
+    [Fact]
+    public void CalcularTStudent_VerificadoManualmente_RetornaValorEsperado()
+    {
+        // ARRANGE - datos verificados manualmente
+        double[] muestra = { 5, 7, 9, 11, 13 };
+        double mediaPoblacional = 7.0;
+
+        // Verificación manual:
+        // Media muestral  = (5+7+9+11+13)/5 = 9
+        // Varianza        = 10
+        // Desv. estándar  = sqrt(10) = 3.1623
+        // Error estándar  = 3.1623 / sqrt(5) = 1.4142
+        // t               = (9 - 7) / 1.4142 = 1.4142
+        double resultadoEsperado = 1.4142;
+
+        // ACT
+        double resultado = _calc.CalcularTStudent(muestra, mediaPoblacional);
+
+        // ASSERT
+        Assert.Equal(resultadoEsperado, resultado, 4);
+    }
 }
